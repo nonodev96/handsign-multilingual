@@ -8,8 +8,8 @@
 
 ![Sign_language_families](.github/Sign_language_families.svg)
 
-- [x] American Sign Language (ASL) from @syauqy
-- [ ] Spanish Sign Language (SSL)
+- [x] American Sign Language (ASL) from [@syauqy](https://github.com/syauqy)
+- [x] Spanish Sign Language (SSL)
 - [ ] French Sign Language family
 - [ ] Russian Sign Language cluster
 - [ ] Czech Sign Language cluster
