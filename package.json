@@ -1,0 +1,18 @@
+{
+  "name": "handsign-multilingual",
+  "version": "1.0.0",
+  "description": "handsign multilingual",
+  "main": "index.js",
+  "author": "@nonodev96",
+  "license": "MIT",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["fingerpose", "tensorflow", "tensorflow.js", "handpose"],
+  "dependencies": {
+    "fingerpose": "^0.1.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.8.1"
+  }
+}
