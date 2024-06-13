@@ -2,17 +2,28 @@
   "name": "handsign-multilingual",
   "version": "1.0.0",
   "description": "handsign multilingual",
-  "main": "index.js",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
   "author": "@nonodev96",
   "license": "MIT",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsup ",
+    "lint": "npx @biomejs/biome lint src",
+    "format": "npx @biomejs/biome format src"
   },
-  "keywords": ["fingerpose", "tensorflow", "tensorflow.js", "handpose"],
+  "keywords": [
+    "fingerpose",
+    "tensorflow",
+    "tensorflow.js",
+    "handpose"
+  ],
   "dependencies": {
     "fingerpose": "^0.1.0"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.8.1"
+    "@biomejs/biome": "1.8.1",
+    "@types/fingerpose": "^0.1.1",
+    "typescript": "^5.4.5"
   }
 }

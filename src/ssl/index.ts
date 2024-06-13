@@ -1,3 +1,4 @@
+import type { HandSignLang } from '../@types'
 import { aSign } from './A'
 import { bSign } from './B'
 import { cSign } from './C'
@@ -27,38 +28,40 @@ import { wSign } from './W'
 import { xSign } from './X'
 import { ySign } from './Y'
 import { zSign } from './Z'
-import { SignImage, SignPass } from './handimage'
+import { SignImage, SignPass } from './handimage/index'
 
-export const HandSignsSSL = {
-  SignImage,
-  SignPass,
-  aSign,
-  bSign,
-  cSign,
-  dSign,
-  eSign,
-  fSign,
-  gSign,
-  hSign,
-  iSign,
-  jSign,
-  kSign,
-  llSign,
-  lSign,
-  mSign,
-  nnSign,
-  nSign,
-  oSign,
-  pSign,
-  qSign,
-  rSign,
-  rrSign,
-  sSign,
-  tSign,
-  uSign,
-  vSign,
-  wSign,
-  xSign,
-  ySign,
-  zSign
+export const HandSignsSSL: HandSignLang = {
+  signImage: SignImage,
+  signPass: SignPass,
+  signs: {
+    aSign,
+    bSign,
+    cSign,
+    dSign,
+    eSign,
+    fSign,
+    gSign,
+    hSign,
+    iSign,
+    jSign,
+    kSign,
+    llSign,
+    lSign,
+    mSign,
+    nnSign,
+    nSign,
+    oSign,
+    pSign,
+    qSign,
+    rSign,
+    rrSign,
+    sSign,
+    tSign,
+    uSign,
+    vSign,
+    wSign,
+    xSign,
+    ySign,
+    zSign
+  }
 }
