@@ -1,0 +1,18 @@
+<svg width="28" height="39" viewBox="0 0 28 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g clip-path="url(#clip0_19_32)">
+        <path d="M28 39H20.9054L7.09458 16.6291V39H0V5H7.09458L20.9291 27.4176V5H28V39Z"
+            fill="url(#paint0_diamond_19_32)" />
+        <rect x="4" width="20" height="3" fill="#FBCF59" />
+    </g>
+    <defs>
+        <radialGradient id="paint0_diamond_19_32" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+            gradientTransform="translate(13.2592 20.9592) rotate(88.0509) scale(44.9501 45.4869)">
+            <stop stop-color="#FFD458" stop-opacity="0.78" />
+            <stop offset="1" stop-color="#F9BF2E" />
+        </radialGradient>
+        <clipPath id="clip0_19_32">
+            <rect width="28" height="39" fill="white" />
+        </clipPath>
+    </defs>
+</svg>
+    

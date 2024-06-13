@@ -27,8 +27,11 @@ import { wSign } from './W'
 import { xSign } from './X'
 import { ySign } from './Y'
 import { zSign } from './Z'
+import { SignImage, SignPass } from './handimage'
 
 export const HandSignsSSL = {
+  SignImage,
+  SignPass,
   aSign,
   bSign,
   cSign,

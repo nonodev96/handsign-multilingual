@@ -1,0 +1,28 @@
+<svg width="56" height="34" viewBox="0 0 56 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g clip-path="url(#clip0_20_117)">
+        <path
+            d="M41.6328 21.6328H36.0312L36 34H29V0H41.6797C45.711 0 48.8204 0.89844 51.0079 2.69531C53.1954 4.49219 54.289 7.03125 54.289 10.3125C54.289 12.6406 53.7812 14.5859 52.7656 16.1484C51.7656 17.6953 50.2422 18.9297 48.1954 19.8516L55.5781 34H48L41.6328 21.6328ZM36.0312 15.9375H41.7031C43.4687 15.9375 44.8359 15.4922 45.8046 14.6016C46.7734 13.6953 47.2579 12.4531 47.2579 10.875C47.2579 9.2656 46.7968 8 45.875 7.07812C44.9687 6.15625 43.5704 5.69531 41.6797 5.69531H36.0312V15.9375Z"
+            fill="url(#paint0_diamond_20_117)" />
+        <path
+            d="M12.6328 21.6328H7.03125L7 34H0V0H12.6797C16.711 0 19.8204 0.89844 22.0079 2.69531C24.1954 4.49219 25.289 7.03125 25.289 10.3125C25.289 12.6406 24.7812 14.5859 23.7656 16.1484C22.7656 17.6953 21.2422 18.9297 19.1954 19.8516L26.5781 34H19L12.6328 21.6328ZM7.03125 15.9375H12.7031C14.4687 15.9375 15.8359 15.4922 16.8046 14.6016C17.7734 13.6953 18.2579 12.4531 18.2579 10.875C18.2579 9.2656 17.7968 8 16.875 7.07812C15.9687 6.15625 14.5704 5.69531 12.6797 5.69531H7.03125V15.9375Z"
+            fill="url(#paint1_diamond_20_117)" />
+    </g>
+    <defs>
+        <radialGradient id="paint0_diamond_20_117" cx="0" cy="0" r="1"
+            gradientUnits="userSpaceOnUse"
+            gradientTransform="translate(41.2424 15.8929) rotate(88.0754) scale(45.1147 45.0815)">
+            <stop stop-color="#FFD458" stop-opacity="0.78" />
+            <stop offset="1" stop-color="#F9BF2E" />
+        </radialGradient>
+        <radialGradient id="paint1_diamond_20_117" cx="0" cy="0" r="1"
+            gradientUnits="userSpaceOnUse"
+            gradientTransform="translate(12.2424 15.8929) rotate(88.0754) scale(45.1147 45.0815)">
+            <stop stop-color="#FFD458" stop-opacity="0.78" />
+            <stop offset="1" stop-color="#F9BF2E" />
+        </radialGradient>
+        <clipPath id="clip0_20_117">
+            <rect width="56" height="34" fill="white" />
+        </clipPath>
+    </defs>
+</svg>
+    
