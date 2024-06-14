@@ -26,6 +26,12 @@
 - [ ] Isolated languages
 - No data
 
+## Install
+
+```bash
+npm install handsign-multilingual
+```
+
 ## Example
 
 ```js
@@ -79,7 +85,7 @@ const signs_array = Object.values(signs)
 
 ```
 
-## Spanish Sign Language (ASL)
+## Spanish Sign Language (SSL)
 
 ![Spanish Sign Language (SSL)](.github/SSL.png)
 
