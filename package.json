@@ -1,12 +1,19 @@
 {
   "name": "handsign-multilingual",
-  "version": "1.0.0",
-  "description": "handsign multilingual",
+  "version": "0.2.0",
+  "description": "handsign multilingual alphabet detection",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
-  "author": "@nonodev96",
-  "license": "MIT",
+  "author": {
+    "name": "Antonio Mudarra Machuca",
+    "email": "nonodev96@gmail.com",
+    "url": "https://github.com/nonodev96"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nonodev96/handsign-multilingual"
+  },
   "scripts": {
     "build": "tsup ",
     "lint": "npx @biomejs/biome lint src",
