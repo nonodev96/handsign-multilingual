@@ -5,21 +5,36 @@
     "esModuleInterop": true,
     "strictNullChecks": true,
     "target": "ES2022",
-    "moduleResolution": "Node10",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "baseUrl": ".",
     "module": "CommonJS",
     "declaration": true,
     "isolatedModules": true,
     "noEmit": true,
+    "rootDir": "./src",
     "outDir": "dist",
+    "types": [
+      "jest",
+      "node",
+    ],
     "typeRoots": [
+      "./node_modules/@types",
       "./src/@types"
-    ]
+    ],
+    "paths": {
+      "@App/*": [
+        "src/*"
+      ]
+    }
   },
   "include": [
     "src",
     "custom.d.ts",
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "**/*.spec.ts",
+    "**/*.test.ts",
   ]
 }
