@@ -15,3 +15,9 @@ export type HandSignLang = {
         [name: string]: GestureDescription
     }
 }
+
+export interface Keypoint3D {
+    x: number;
+    y: number;
+    z: number;
+}

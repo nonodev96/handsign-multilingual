@@ -1,7 +1,8 @@
+import * as utils from '/utils'
 import { HandSignsASL } from './asl/index'
 import { HandSignsSSL } from './ssl/index'
 
-export function add(x: number, y: number): number {
+export function sum(x: number, y: number): number {
     return x + y
 }
 

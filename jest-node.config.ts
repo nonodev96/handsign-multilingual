@@ -6,7 +6,8 @@ const config: Config.InitialOptions = {
   verbose: true,
   transform: {
     "^.+\\.svg$": "<rootDir>/svgTransform.js"
-  }
+  },
+  // collectCoverage: true,
 };
 
 export default config
