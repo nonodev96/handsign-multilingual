@@ -1,4 +1,4 @@
-import type { HandSignLang } from '../@types'
+import type { HandSignLang } from '../__types__'
 import { aSign } from './A'
 import { bSign } from './B'
 import { cSign } from './C'
@@ -30,7 +30,7 @@ import { ySign } from './Y'
 import { zSign } from './Z'
 import { SignImage, SignPass } from './handimage/index'
 
-export const HandSignsSSL: HandSignLang = {
+const HandSignsSSL: HandSignLang = {
   signImage: SignImage,
   signPass: SignPass,
   signs: {
@@ -64,4 +64,8 @@ export const HandSignsSSL: HandSignLang = {
     ySign,
     zSign
   }
+}
+
+export {
+  HandSignsSSL
 }

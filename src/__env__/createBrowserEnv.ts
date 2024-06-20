@@ -1,16 +1,16 @@
-import type { Environment } from './types';
+import type { Environment } from '#/__types__';
 
 export function createBrowserEnv(): Environment {
 
-    const fetch = () => {
-        const fetch = global.fetch
+    function _fetch() {
+        const fetch = window.fetch
         if (fetch) {
             return fetch
         }
         throw new Error('fetch - missing fetch implementation for nodejs environment')
     }
 
-    const readFile = () => {
+    function _readFile() {
         throw new Error('readFile - filesystem not available for browser environment')
     }
 
@@ -22,7 +22,7 @@ export function createBrowserEnv(): Environment {
         Video: HTMLVideoElement,
         createCanvasElement: () => document.createElement('canvas'),
         createImageElement: () => document.createElement('img'),
-        fetch,
-        readFile
+        fetch: _fetch
+        // readFile: _readFile
     }
 }

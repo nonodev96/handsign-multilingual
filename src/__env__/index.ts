@@ -1,8 +1,8 @@
-import { createBrowserEnv } from './createBrowserEnv';
-import { createNodejsEnv } from './createNodejsEnv';
-import { isBrowser } from './isBrowser';
-import { isNodejs } from './isNodejs';
-import type { Environment } from './types';
+import { createBrowserEnv } from '#/__env__/createBrowserEnv';
+import { createNodejsEnv } from '#/__env__/createNodejsEnv';
+import { isBrowser } from '#/__env__/isBrowser';
+import { isNodejs } from '#/__env__/isNodejs';
+import type { Environment } from '#/__types__';
 
 let environment: Environment | null
 
@@ -10,13 +10,14 @@ function initialize() {
     // check for isBrowser() first to prevent electron renderer process
     // to be initialized with wrong environment due to isNodejs() returning true
     if (isBrowser()) {
+        console.log("isBrowser")
         return setEnv(createBrowserEnv())
     }
     if (isNodejs()) {
+        console.log("isNodejs")
         return setEnv(createNodejsEnv())
     }
 }
-
 
 function getEnv(): Environment {
     if (!environment) {
@@ -28,3 +29,7 @@ function getEnv(): Environment {
 function setEnv(env: Environment) {
     environment = env
 }
+
+initialize()
+
+export { getEnv }

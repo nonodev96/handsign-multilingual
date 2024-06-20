@@ -1,6 +1,5 @@
-import * as utils from '/utils'
-import { HandSignsASL } from './asl/index'
-import { HandSignsSSL } from './ssl/index'
+import { HandSignsASL } from './asl'
+import { HandSignsSSL } from './ssl'
 
 export function sum(x: number, y: number): number {
     return x + y
