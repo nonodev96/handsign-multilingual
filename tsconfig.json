@@ -15,7 +15,6 @@
     "rootDir": "./src",
     "outDir": "dist",
     "types": [
-      "jest",
       "node",
     ],
     "typeRoots": [
