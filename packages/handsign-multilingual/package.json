@@ -15,6 +15,7 @@
     "url": "https://github.com/nonodev96/handsign-multilingual"
   },
   "scripts": {
+    "dev": "tsup --watch",
     "build": "tsup",
     "lint": "npx @biomejs/biome lint src",
     "format": "npx @biomejs/biome format src"

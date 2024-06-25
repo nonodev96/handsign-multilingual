@@ -1,13 +1,12 @@
 import type { GestureDescription } from "fingerpose";
 
 export type HandSignLang = {
-    signImage: {
+    signImage?: {
         [name: string]: string
     }
 
-    signPass: {
-        // biome-ignore lint/suspicious/noExplicitAny: <explanation>
-        src: any;
+    signPass?: {
+        src: string;
         alt: string;
     }[]
 
@@ -22,19 +21,13 @@ export interface Keypoint3D {
     z: number;
 }
 
-export type FileSystem = {
-    readFile: (filePath: string) => Promise<Buffer>
-}
-
 export type Environment = {
     Canvas: typeof HTMLCanvasElement;
     CanvasRenderingContext2D: typeof CanvasRenderingContext2D;
     Image: typeof HTMLImageElement;
     ImageData: typeof ImageData;
     Video: typeof HTMLVideoElement;
+    fetch: typeof fetch;
     createCanvasElement: () => HTMLCanvasElement;
     createImageElement: () => HTMLImageElement;
-    fetch: typeof fetch;
-
-    // readFile: (filePath: string) => Promise<Buffer>
 }

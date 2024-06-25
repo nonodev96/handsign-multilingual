@@ -14,6 +14,7 @@ tfjs.setBackend('webgl');
 
 export default function HandSignMultilingual() {
 
+    const [debugInfo, setDebugInfo] = useState('')
     const [deviceState, setDeviceState] = useState({
         deviceId: '',
         label: ''
@@ -29,12 +30,10 @@ export default function HandSignMultilingual() {
     const init = useCallback(async (): Promise<boolean> => {
         console.debug('Init')
         // SPANISH
-        const { HandSignsSSL } = handsignMultiligual
+        const { HandSignsTest } = handsignMultiligual
 
-        const signs = Object.values(HandSignsSSL.signs)
-        const _gestureEstimator = new fp.GestureEstimator([
-            ...signs
-        ])
+        const signs = Object.values(HandSignsTest.signs) as fp.GestureDescription[]
+        const _gestureEstimator = new fp.GestureEstimator(signs)
 
         gestureEstimatorRef.current = _gestureEstimator
 
@@ -113,6 +112,7 @@ export default function HandSignMultilingual() {
             _drawFinger(ctx, hand.keypoints)
             const landmark3D = hand.keypoints3D.map(({ x, y, z }) => [x, y, z]) as unknown as Keypoint3D[]
             const estimatedGestures = gestureEstimatorRef.current.estimate(landmark3D, 8.5)
+            setDebugInfo(estimatedGestures.poseData.join("\n"))
             console.log({ hand: hand.handedness, estimatedGestures })
 
             const { x, y } = hand.keypoints[0]
@@ -174,6 +174,10 @@ export default function HandSignMultilingual() {
         }))
     }
 
+    const copyToClipboard = () => {
+        navigator.clipboard.writeText(debugInfo);
+    }
+
     return (
         <>
             <div className={styles.webcamContainer}>
@@ -210,6 +214,12 @@ export default function HandSignMultilingual() {
             <hr />
 
             <button type="button" onClick={info}>Info</button>
+
+            <details>
+                <summary>Debug</summary>
+                <button type="button" onClick={copyToClipboard}> Copy to clipboard</button>
+                <pre>{debugInfo}</pre>
+            </details>
 
             <details>
                 <summary>Info devices</summary>
