@@ -16,7 +16,7 @@
     "outDir": "dist",
     "typeRoots": [
       "./node_modules/@types",
-      "src/__types__"
+      "src/types.ts"
     ],
     "paths": {
       "#/*": [

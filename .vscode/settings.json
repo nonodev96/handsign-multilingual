@@ -2,7 +2,8 @@
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "biomejs.biome",
   "files.associations": {
-    "**/excamples/**/*.js": "plaintext"
+    "**/excamples/**/*.js": "plaintext",
+    "*.css": "tailwindcss"
   },
   "editor.codeActionsOnSave": {
     "source.organizeImports.biome": "explicit"

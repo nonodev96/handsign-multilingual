@@ -1,5 +1,4 @@
 import { useCallback, useEffect, useState } from "react";
-import styles from './DevicesInfo.module.css'
 
 interface DevicesInfoProps {
     onDeviceChange: (mediaDeviceInfo: MediaDeviceInfo) => void
@@ -20,12 +19,16 @@ export default function DevicesInfo({ onDeviceChange }: DevicesInfoProps) {
     }, [handleDevices])
 
     return <>
-        <ol className={styles.left}>
+        <ol>
             {devices.map((device: MediaDeviceInfo, index: number) => (
-                <li key={device.deviceId}>
-                    {device.label || `Device ${index + 1}`}
-
-                    <button type="button" onClick={() => onDeviceChange(device)}>Select</button>
+                <li key={device.deviceId}
+                    className="mb-2">
+                    <button type="button"
+                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded"
+                        onClick={() => onDeviceChange(device)}>Select</button>
+                    <span className="ms-2">
+                        {device.label || `Device ${index + 1}`}
+                    </span>
                 </li>
             ))}
         </ol>

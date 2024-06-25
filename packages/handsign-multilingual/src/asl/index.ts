@@ -1,4 +1,4 @@
-import type { HandSignLang } from '../__types__'
+import type { HandSignLang } from '#/types'
 import { aSign } from './A'
 import { bSign } from './B'
 import { cSign } from './C'

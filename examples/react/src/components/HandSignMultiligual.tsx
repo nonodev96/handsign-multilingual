@@ -5,16 +5,18 @@ import * as fp from 'fingerpose'
 import * as handsignMultiligual from 'handsign-multilingual'
 import { useCallback, useEffect, useRef, useState } from 'react';
 import Webcam from 'react-webcam';
-import type { Keypoint3D } from '../index.d.ts';
+import type { Keypoint3D, PosDataArray } from '../index.d.ts';
 import DevicesInfo from './DevicesInfo';
-import styles from './HandSignMultiligual.module.css'
 import { _drawFinger, _drawTextBG } from './drawUtils';
-tfjs.setBackend('webgl');
+// tfjs.setBackend('webgl');
 
 
 export default function HandSignMultilingual() {
 
-    const [debugInfo, setDebugInfo] = useState('')
+    const [debugInfo, setDebugInfo] = useState<{ left: PosDataArray, right: PosDataArray }>({
+        left: [],
+        right: []
+    })
     const [deviceState, setDeviceState] = useState({
         deviceId: '',
         label: ''
@@ -30,9 +32,9 @@ export default function HandSignMultilingual() {
     const init = useCallback(async (): Promise<boolean> => {
         console.debug('Init')
         // SPANISH
-        const { HandSignsTest } = handsignMultiligual
+        const { HandSignsSSL } = handsignMultiligual
 
-        const signs = Object.values(HandSignsTest.signs) as fp.GestureDescription[]
+        const signs = Object.values(HandSignsSSL.signs) as fp.GestureDescription[]
         const _gestureEstimator = new fp.GestureEstimator(signs)
 
         gestureEstimatorRef.current = _gestureEstimator
@@ -102,7 +104,6 @@ export default function HandSignMultilingual() {
     }, [init])
 
     const renderHands = useCallback((ctx: CanvasRenderingContext2D, predictions: handPoseDetection.Hand[]) => {
-        console.log("render", { ctx, predictions })
         if (gestureEstimatorRef.current === null) return
 
         for (const hand of predictions) {
@@ -112,7 +113,22 @@ export default function HandSignMultilingual() {
             _drawFinger(ctx, hand.keypoints)
             const landmark3D = hand.keypoints3D.map(({ x, y, z }) => [x, y, z]) as unknown as Keypoint3D[]
             const estimatedGestures = gestureEstimatorRef.current.estimate(landmark3D, 8.5)
-            setDebugInfo(estimatedGestures.poseData.join("\n"))
+            if (hand.handedness === "Right") {
+                setDebugInfo(prevState => {
+                    return {
+                        ...prevState,
+                        right: estimatedGestures.poseData
+                    }
+                })
+            }
+            if (hand.handedness === "Left") {
+                setDebugInfo(prevState => {
+                    return {
+                        ...prevState,
+                        left: estimatedGestures.poseData
+                    }
+                })
+            }
             console.log({ hand: hand.handedness, estimatedGestures })
 
             const { x, y } = hand.keypoints[0]
@@ -175,56 +191,89 @@ export default function HandSignMultilingual() {
     }
 
     const copyToClipboard = () => {
-        navigator.clipboard.writeText(debugInfo);
+        navigator.clipboard.writeText(JSON.stringify(debugInfo));
     }
 
     return (
         <>
-            <div className={styles.webcamContainer}>
-                <Webcam
-                    ref={webcamRef}
-                    audio={false}
-                    mirrored={false}
-                    screenshotFormat="image/png"
-                    onUserMedia={onUserMedia}
-                    onUserMediaError={onUserMediaError}
-                    videoConstraints={{
-                        facingMode: "user",
-                        deviceId: deviceState.deviceId
-                    }}
-                    style={{
-                        position: 'relative',
-                        width: '100%',
-                        height: '100%',
-                    }}
-                />
-                <canvas ref={canvasRef}
-                    style={{
-                        objectFit: 'contain',
-                        position: 'absolute',
-                        width: '100%',
-                        height: '100%',
-                        top: 0,
-                        left: 0,
-                        right: 0,
-                        bottom: 0
-                    }} />
+            <h1 className='text-3xl mb-2'>Handsign multilingual</h1>
+            <div className="grid grid-cols-3 gap-4">
+                <div className="col-span-2	relative overflow-hidden">
+                    <Webcam
+                        ref={webcamRef}
+                        audio={false}
+                        mirrored={false}
+                        screenshotFormat="image/png"
+                        onUserMedia={onUserMedia}
+                        onUserMediaError={onUserMediaError}
+                        videoConstraints={{
+                            facingMode: "user",
+                            deviceId: deviceState.deviceId
+                        }}
+                        style={{
+                            position: 'relative',
+                            width: '100%',
+                            height: '100%',
+                        }}
+                    />
+                    <canvas ref={canvasRef}
+                        style={{
+                            objectFit: 'contain',
+                            position: 'absolute',
+                            width: '100%',
+                            height: '100%',
+                            top: 0,
+                            left: 0,
+                            right: 0,
+                            bottom: 0
+                        }} />
+                </div>
+
+
+
+                <div className="">
+
+                    <details className='mb-3 border-2 border-dashed border-stone-500 bg-gray-200 p-4 shadow [&_svg]:open:-rotate-180'>
+                        <summary className='flex cursor-pointer list-none items-center text-xl'>
+                            <svg className="rotate-0 transform text-blue-700 transition-all duration-300" fill="none" height="20" width="20" style={{ stroke: "currentColor", strokeLinecap: "round", strokeLinejoin: "round", strokeWidth: "2" }} viewBox="0 0 24 24">
+                                <title>OPEN</title>
+                                <polyline points="6 9 12 15 18 9" />
+                            </svg>
+                            <h3 className='ms-2'>Debug</h3>
+                        </summary>
+                        <main className='mt-2'>
+                            <button type="button"
+                                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                                onClick={copyToClipboard}> Copy to clipboard</button>
+                            <button type="button"
+                                className="ms-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                                onClick={info}>Log</button>
+
+                            <hr />
+
+                            <h3>Left</h3>
+                            <pre>{debugInfo.left.join("\n")}</pre>
+                            <h3>Right</h3>
+                            <pre>{debugInfo.right.join("\n")}</pre>
+                        </main>
+                    </details>
+                    <details className='mb-3 border-2 border-dashed border-stone-500 bg-gray-200 p-4 shadow [&_svg]:open:-rotate-180'>
+                        <summary className='flex cursor-pointer list-none items-center text-xl'>
+                            <svg className="rotate-0 transform text-blue-700 transition-all duration-300" fill="none" height="20" width="20" style={{ stroke: "currentColor", strokeLinecap: "round", strokeLinejoin: "round", strokeWidth: "2" }} viewBox="0 0 24 24">
+                                <title>OPEN</title>
+                                <polyline points="6 9 12 15 18 9" />
+                            </svg>
+                            <h3 className='ms-2'>Info devices</h3>
+                        </summary>
+                        <main className='mt-2'>
+                            <DevicesInfo onDeviceChange={onDeviceChange} />
+                        </main>
+                    </details>
+                </div>
+                <div className="">
+
+                </div>
             </div>
-
-            <hr />
-
-            <button type="button" onClick={info}>Info</button>
-
-            <details>
-                <summary>Debug</summary>
-                <button type="button" onClick={copyToClipboard}> Copy to clipboard</button>
-                <pre>{debugInfo}</pre>
-            </details>
-
-            <details>
-                <summary>Info devices</summary>
-                <DevicesInfo onDeviceChange={onDeviceChange} />
-            </details>
         </>
     )
 }

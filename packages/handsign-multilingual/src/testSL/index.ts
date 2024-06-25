@@ -1,5 +1,4 @@
-import { Finger, FingerCurl, FingerDirection, GestureDescription } from "fingerpose";
-import type { HandSignLang } from "#/__types__";
+import type { HandSignLang } from '#/types'
 import { aSign } from "./A";
 
 
@@ -11,3 +10,4 @@ const HandSignsTest: HandSignLang = {
 }
 
 export { HandSignsTest }
+
