@@ -1,5 +1,5 @@
 {
-  "name": "example-handsign-multiligual-react",
+  "name": "example-handsign-multilingual-react",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,8 +10,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@react-hooks-library/core": "^0.6.2",
+    "@tensorflow-models/hand-pose-detection": "^2.0.1",
+    "@webcam/react": "^1.0.1",
+    "handsign-multilingual": "file:../../packages/handsign-multilingual",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-camera-pro": "^1.4.0",
+    "react-dom": "^18.3.1",
+    "react-webcam": "^7.2.0"
   },
   "devDependencies": {
     "@types/react": "^18.3.3",
