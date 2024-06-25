@@ -1,6 +1,9 @@
 {
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "biomejs.biome",
+  "files.associations": {
+    "**/excamples/**/*.js": "plaintext"
+  },
   "editor.codeActionsOnSave": {
     "source.organizeImports.biome": "explicit"
   },
@@ -9,5 +12,8 @@
   },
   "[xml]": {
     "editor.defaultFormatter": "redhat.vscode-xml"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "biomejs.biome"
   }
 }

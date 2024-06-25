@@ -147,13 +147,13 @@ export default function HandSignMultilingual() {
                 }
             }
 
-            const startAnimating = async (fps: number) => {
+            const startAnimating = async () => {
                 msPerFrame = 1000 / fps
                 msPrev = window.performance.now()
-                await animate()
                 console.debug('start animation')
+                await animate()
             }
-            startAnimating(fps)
+            startAnimating()
         } catch (error) {
             console.error(error)
             cancelAnimationFrame(requestAnimationRef.current)
