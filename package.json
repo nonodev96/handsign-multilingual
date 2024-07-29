@@ -1,6 +1,7 @@
 {
     "name": "handsign-multilingual",
     "description": "HandSign multilingual library",
+    "version": "0.2.0",
     "author": {
         "name": "Antonio Mudarra Machuca",
         "email": "nonodev96@gmail.com",
@@ -15,9 +16,9 @@
         "dev:package": "npm run dev --workspace=packages/handsign-multilingual",
         "build:package": "npm run build --workspace=packages/handsign-multilingual",
         "test": "",
+        "changelog": "conventional-changelog -i CHANGELOG.md -s -r 0",
         "prepare": "husky install"
     },
-    "version": "1.0.0",
     "workspaces": [
         "examples/react",
         "packages/handsign-multilingual"
@@ -25,6 +26,7 @@
     "devDependencies": {
         "@commitlint/cli": "^19.3.0",
         "@commitlint/config-conventional": "^19.2.2",
+        "conventional-changelog-cli": "^5.0.0",
         "husky": "^8.0.0"
     }
 }
