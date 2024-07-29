@@ -16,5 +16,8 @@
   },
   "[css]": {
     "editor.defaultFormatter": "biomejs.biome"
-  }
+  },
+  "conventionalCommits.scopes": [
+    "commitlint"
+  ]
 }

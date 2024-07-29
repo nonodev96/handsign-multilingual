@@ -14,7 +14,7 @@
         "dev:react": "npm run dev --workspace=examples/react",
         "dev:package": "npm run dev --workspace=packages/handsign-multilingual",
         "build:package": "npm run build --workspace=packages/handsign-multilingual",
-        "test": "echo 1;",
+        "test": "",
         "prepare": "husky install"
     },
     "version": "1.0.0",
