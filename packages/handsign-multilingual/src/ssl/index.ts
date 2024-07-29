@@ -1,4 +1,4 @@
-import type { HandSignLang } from '../@types'
+import type { HandSignLang } from '#/types'
 import { aSign } from './A'
 import { bSign } from './B'
 import { cSign } from './C'
@@ -11,12 +11,15 @@ import { iSign } from './I'
 import { jSign } from './J'
 import { kSign } from './K'
 import { lSign } from './L'
+import { llSign } from './LL'
 import { mSign } from './M'
 import { nSign } from './N'
+import { nnSign } from './NN'
 import { oSign } from './O'
 import { pSign } from './P'
 import { qSign } from './Q'
 import { rSign } from './R'
+import { rrSign } from './RR'
 import { sSign } from './S'
 import { tSign } from './T'
 import { uSign } from './U'
@@ -27,7 +30,7 @@ import { ySign } from './Y'
 import { zSign } from './Z'
 import { SignImage, SignPass } from './handimage/index'
 
-export const HandSignsASL: HandSignLang = {
+const HandSignsSSL: HandSignLang = {
   signImage: SignImage,
   signPass: SignPass,
   signs: {
@@ -42,13 +45,16 @@ export const HandSignsASL: HandSignLang = {
     iSign,
     jSign,
     kSign,
+    llSign,
     lSign,
     mSign,
+    nnSign,
     nSign,
     oSign,
     pSign,
     qSign,
     rSign,
+    rrSign,
     sSign,
     tSign,
     uSign,
@@ -56,6 +62,10 @@ export const HandSignsASL: HandSignLang = {
     wSign,
     xSign,
     ySign,
-    zSign,
+    zSign
   }
+}
+
+export {
+  HandSignsSSL
 }

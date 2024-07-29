@@ -1,6 +1,10 @@
 {
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "biomejs.biome",
+  "files.associations": {
+    "**/excamples/**/*.js": "plaintext",
+    "*.css": "tailwindcss"
+  },
   "editor.codeActionsOnSave": {
     "source.organizeImports.biome": "explicit"
   },
@@ -9,5 +13,11 @@
   },
   "[xml]": {
     "editor.defaultFormatter": "redhat.vscode-xml"
-  }
+  },
+  "[css]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "conventionalCommits.scopes": [
+    "commitlint"
+  ]
 }

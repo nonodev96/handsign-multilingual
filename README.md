@@ -35,11 +35,11 @@ npm install handsign-multilingual
 ## Example
 
 ```js
-import * as handsignMultiligual from 'handsign-multilingual'
+import * as handsignMultilingual from 'handsign-multilingual'
 import * as handPoseDetection from '@tensorflow-models/hand-pose-detection'
 
 // INIT
-const { HandSignsSSL } = handsignMultiligual
+const { HandSignsSSL } = handsignMultilingual
 const signs = Object.values(HandSignsSSL.signs)
 const _GE = new fp.GestureEstimator([
     ...signs

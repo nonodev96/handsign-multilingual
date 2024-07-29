@@ -8,23 +8,22 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "baseUrl": ".",
-    "module": "CommonJS",
+    "module": "ES2022",
     "declaration": true,
     "isolatedModules": true,
     "noEmit": true,
     "rootDir": "./src",
     "outDir": "dist",
-    "types": [
-      "jest",
-      "node",
-    ],
     "typeRoots": [
       "./node_modules/@types",
-      "./src/@types"
+      "src/types.ts"
     ],
     "paths": {
-      "@App/*": [
-        "src/*"
+      "#/*": [
+        "./src/*"
+      ],
+      "#tests/*": [
+        "./tests/*"
       ]
     }
   },

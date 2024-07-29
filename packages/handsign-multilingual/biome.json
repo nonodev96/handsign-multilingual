@@ -3,13 +3,19 @@
   "organizeImports": {
     "enabled": true
   },
+  "files": {
+    "ignore": [
+      "examples/**/*"
+    ]
+  },
   "linter": {
     "enabled": true,
     "rules": {
       "recommended": true,
       "style": {
+        "noInferrableTypes": "info",
         "useNamingConvention": {
-          "level": "error",
+          "level": "info",
           "options": {
             "strictCase": false
           }
