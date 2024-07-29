@@ -13,11 +13,18 @@
     "scripts": {
         "dev:react": "npm run dev --workspace=examples/react",
         "dev:package": "npm run dev --workspace=packages/handsign-multilingual",
-        "build:package": "npm run build --workspace=packages/handsign-multilingual"
+        "build:package": "npm run build --workspace=packages/handsign-multilingual",
+        "test": "echo 1;",
+        "prepare": "husky install"
     },
     "version": "1.0.0",
     "workspaces": [
         "examples/react",
         "packages/handsign-multilingual"
-    ]
+    ],
+    "devDependencies": {
+        "@commitlint/cli": "^19.3.0",
+        "@commitlint/config-conventional": "^19.2.2",
+        "husky": "^8.0.0"
+    }
 }

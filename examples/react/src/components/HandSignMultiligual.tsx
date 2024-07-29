@@ -196,7 +196,7 @@ export default function HandSignMultilingual() {
 
     return (
         <>
-            <h1 className='text-3xl mb-2'>Handsign multilingual</h1>
+            <h1 className='text-3xl mb-4'>Handsign multilingual</h1>
             <div className="grid grid-cols-3 gap-4">
                 <div className="col-span-2	relative overflow-hidden">
                     <Webcam

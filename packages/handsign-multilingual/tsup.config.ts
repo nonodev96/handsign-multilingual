@@ -8,6 +8,7 @@ export default defineConfig({
     skipNodeModulesBundle: true,
     clean: true,
     platform: 'browser',
+    outDir: "../../dist",
     sourcemap: true,
     // minify: true,
     loader: {
