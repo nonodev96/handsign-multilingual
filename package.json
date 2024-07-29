@@ -2,6 +2,9 @@
     "name": "handsign-multilingual",
     "description": "HandSign multilingual library",
     "version": "0.2.0",
+    "main": "./dist/index.js",
+    "module": "./dist/index.mjs",
+    "types": "./dist/index.d.ts",
     "author": {
         "name": "Antonio Mudarra Machuca",
         "email": "nonodev96@gmail.com",
