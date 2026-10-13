@@ -140,7 +140,7 @@ export default function Practice() {
                   index < position
                     ? 'text-emerald-600 dark:text-emerald-400'
                     : index === position
-                      ? 'rounded bg-indigo-100 px-1 text-indigo-700 dark:bg-indigo-950 dark:text-indigo-200'
+                      ? 'rounded-sm bg-indigo-100 px-1 text-indigo-700 dark:bg-indigo-950 dark:text-indigo-200'
                       : 'text-slate-400'
                 }
               >

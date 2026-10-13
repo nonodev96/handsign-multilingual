@@ -93,7 +93,7 @@ export function Segmented<T extends string>({
             onClick={() => onChange(option.value)}
             className={`rounded-md px-3 py-1 text-sm ${
               value === option.value
-                ? 'bg-white font-semibold text-indigo-700 shadow dark:bg-slate-600 dark:text-white'
+                ? 'bg-white font-semibold text-indigo-700 shadow-sm dark:bg-slate-600 dark:text-white'
                 : 'text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white'
             }`}
           >
@@ -118,7 +118,7 @@ export function CodeBlock({ code, copyLabel, copiedLabel }: { code: string; copy
       <div className="flex justify-end border-b border-slate-700 px-2 py-1">
         <button
           type="button"
-          className="rounded px-2 py-0.5 text-xs text-slate-300 hover:bg-slate-700 hover:text-white"
+          className="rounded-sm px-2 py-0.5 text-xs text-slate-300 hover:bg-slate-700 hover:text-white"
           onClick={() => navigator.clipboard?.writeText(code).then(() => setCopied(true))}
         >
           <span aria-live="polite">{copied ? copiedLabel : copyLabel}</span>

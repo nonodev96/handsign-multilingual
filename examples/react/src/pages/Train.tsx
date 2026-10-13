@@ -148,7 +148,7 @@ export default function Train() {
   const overlay =
     recording.phase === 'countdown' ? (
       <div className="absolute inset-0 flex items-center justify-center bg-slate-900/40" role="status">
-        <span className="text-8xl font-bold text-white drop-shadow">{recording.seconds}</span>
+        <span className="text-8xl font-bold text-white drop-shadow-sm">{recording.seconds}</span>
       </div>
     ) : recording.phase === 'recording' ? (
       <div className="absolute left-3 top-3 flex items-center gap-2 rounded-full bg-red-600 px-3 py-1 text-sm font-semibold text-white" role="status">

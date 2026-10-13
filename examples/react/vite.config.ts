@@ -1,6 +1,7 @@
 import { mkdirSync, writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
+import tailwindcss from '@tailwindcss/vite'
 import basicSsl from '@vitejs/plugin-basic-ssl'
 import react from '@vitejs/plugin-react'
 import { type Plugin, defineConfig } from 'vite'
@@ -111,5 +112,5 @@ export default defineConfig(({ mode }) => ({
   base: '/handsign-multilingual/',
   // `vite --mode https` (pnpm dev:https): a development certificate, so the camera also works from other devices
   // (browsers only allow it on HTTPS or localhost)
-  plugins: [react(), saveRecordings(), mediapipeHandsExports(), ...(mode === 'https' ? [basicSsl()] : [])]
+  plugins: [react(), tailwindcss(), saveRecordings(), mediapipeHandsExports(), ...(mode === 'https' ? [basicSsl()] : [])]
 }))

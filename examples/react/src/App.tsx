@@ -24,7 +24,7 @@ function Header() {
           </span>
           Handsign multilingual
         </NavLink>
-        <nav aria-label={t({ en: 'Pages', es: 'Páginas' })} className="order-3 w-full overflow-x-auto md:order-none md:w-auto">
+        <nav aria-label={t({ en: 'Pages', es: 'Páginas' })} className="order-3 w-full overflow-x-auto md:order-0 md:w-auto">
           <ul className="flex gap-1">
             {PAGES.map(({ to, label }) => (
               <li key={to}>
@@ -49,7 +49,7 @@ function Header() {
           <label className="flex min-w-0 items-center gap-2 text-sm">
             <span className="sr-only lg:not-sr-only">{t({ en: 'Sign language', es: 'Lengua de signos' })}</span>
             <select
-              className="field min-w-0 max-w-[11rem] sm:max-w-none"
+              className="field min-w-0 max-w-44 sm:max-w-none"
               value={settings.signLanguage}
               onChange={(event) => update({ signLanguage: event.target.value as SignLanguageId })}
             >
@@ -105,7 +105,7 @@ function Layout() {
     <div className="flex min-h-screen flex-col">
       <a
         href="#main"
-        className="sr-only focus:not-sr-only focus:absolute focus:left-2 focus:top-2 focus:z-50 focus:rounded focus:bg-white focus:p-2"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-2 focus:top-2 focus:z-50 focus:rounded-sm focus:bg-white focus:p-2"
       >
         {t({ en: 'Skip to content', es: 'Saltar al contenido' })}
       </a>

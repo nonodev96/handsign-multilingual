@@ -353,7 +353,7 @@ export default function Demo() {
             >
               {t({ en: 'Copy the points of the hand (JSON)', es: 'Copiar los puntos de la mano (JSON)' })}
             </button>
-            <pre className="max-h-48 overflow-auto rounded bg-slate-100 p-2 text-xs dark:bg-slate-800">
+            <pre className="max-h-48 overflow-auto rounded-sm bg-slate-100 p-2 text-xs dark:bg-slate-800">
               {first ? first.fingers.map(({ finger, curl, direction }) => `${finger}: ${curl}, ${direction}`).join('\n') : '—'}
             </pre>
           </div>
