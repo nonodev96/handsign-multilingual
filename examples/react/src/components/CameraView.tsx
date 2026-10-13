@@ -239,6 +239,7 @@ export function CameraView({ onFrame, overlay }: CameraViewProps) {
             en: 'The hand model could not be loaded (it comes from cdn.jsdelivr.net). Check the connection and reload the page.',
             es: 'No se ha podido cargar el modelo de manos (viene de cdn.jsdelivr.net). Revisa la conexión y recarga la página.'
           })}
+          {detector.message && <span className="block text-xs opacity-75">{detector.message}</span>}
         </Notice>
       )}
 

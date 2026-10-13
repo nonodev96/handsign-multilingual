@@ -79,11 +79,31 @@ function saveRecordings(): Plugin {
   }
 }
 
+/**
+ * Only in the build: @mediapipe/hands is a Closure bundle that publishes its API (Hands, HAND_CONNECTIONS, VERSION) on
+ * `this || self` from inside a function, which Rollup cannot see, so the module came out empty and `new Hands()` failed
+ * (the development server, with esbuild, gets it right). Naming the exports makes Rollup keep them
+ */
+function mediapipeHandsExports(): Plugin {
+  return {
+    name: 'handsign-mediapipe-hands-exports',
+    apply: 'build',
+    transform(code, id) {
+      if (!/[\\/]@mediapipe[\\/]hands[\\/]hands\.js$/.test(id)) return null
+      const names = ['Hands', 'HAND_CONNECTIONS', 'VERSION']
+      return {
+        code: `${code}\n${names.map((name) => `exports.${name} = ${name};`).join('\n')}\n`,
+        map: null
+      }
+    }
+  }
+}
+
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
   // The demo lives under /handsign-multilingual/ (GitHub Pages); the router uses the same basename
   base: '/handsign-multilingual/',
   // `vite --mode https` (pnpm dev:https): a development certificate, so the camera also works from other devices
   // (browsers only allow it on HTTPS or localhost)
-  plugins: [react(), saveRecordings(), ...(mode === 'https' ? [basicSsl()] : [])]
+  plugins: [react(), saveRecordings(), mediapipeHandsExports(), ...(mode === 'https' ? [basicSsl()] : [])]
 }))
