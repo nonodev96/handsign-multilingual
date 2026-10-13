@@ -1,39 +1,26 @@
 {
   "compilerOptions": {
     "strict": true,
-    "noImplicitAny": true,
-    "esModuleInterop": true,
-    "strictNullChecks": true,
     "target": "ES2022",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "baseUrl": ".",
     "module": "ES2022",
-    "declaration": true,
+    "moduleResolution": "bundler",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
     "isolatedModules": true,
+    "declaration": true,
     "noEmit": true,
-    "rootDir": "./src",
-    "outDir": "dist",
-    "typeRoots": [
-      "./node_modules/@types",
-      "src/types.ts"
-    ],
+    "skipLibCheck": true,
+    "baseUrl": ".",
     "paths": {
       "#/*": [
         "./src/*"
-      ],
-      "#tests/*": [
-        "./tests/*"
       ]
     }
   },
   "include": [
     "src",
-    "custom.d.ts",
-  ],
-  "exclude": [
-    "node_modules",
-    "**/*.spec.ts",
-    "**/*.test.ts",
+    "tests",
+    "scripts",
+    "custom.d.ts"
   ]
 }

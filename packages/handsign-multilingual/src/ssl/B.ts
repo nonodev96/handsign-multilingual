@@ -3,7 +3,7 @@ import {
   FingerCurl,
   FingerDirection,
   GestureDescription
-} from 'fingerpose'
+} from '../fingerpose'
 
 const bSign = new GestureDescription('B')
 // [
@@ -36,8 +36,8 @@ const bSign = new GestureDescription('B')
 
 // Thumb
 bSign.addCurl(Finger.Thumb, FingerCurl.HalfCurl, 1.0)
-bSign.addDirection(Finger.Index, FingerDirection.DiagonalUpLeft, 0.7)
-bSign.addDirection(Finger.Index, FingerDirection.DiagonalUpRight, 0.7)
+bSign.addDirection(Finger.Thumb, FingerDirection.DiagonalUpLeft, 0.7)
+bSign.addDirection(Finger.Thumb, FingerDirection.DiagonalUpRight, 0.7)
 
 // Index
 bSign.addCurl(Finger.Index, FingerCurl.NoCurl, 1)

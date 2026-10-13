@@ -3,7 +3,7 @@ import {
   FingerCurl,
   FingerDirection,
   GestureDescription
-} from 'fingerpose'
+} from '../fingerpose'
 
 const eSign = new GestureDescription('E')
 // [
@@ -36,7 +36,7 @@ const eSign = new GestureDescription('E')
 
 // Thumb
 eSign.addCurl(Finger.Thumb, FingerCurl.HalfCurl, 1.0)
-eSign.addDirection(Finger.Index, FingerDirection.VerticalUp, 0.7)
+eSign.addDirection(Finger.Thumb, FingerDirection.VerticalUp, 0.7)
 
 // Index
 eSign.addCurl(Finger.Index, FingerCurl.FullCurl, 1)

@@ -1,189 +1,92 @@
-import Asign from './A.svg'
-import Bsign from './B.svg'
-import Csign from './C.svg'
-import Dsign from './D.svg'
-import Esign from './E.svg'
-import Fsign from './F.svg'
-import Gsign from './G.svg'
-import Hsign from './H.svg'
-import Isign from './I.svg'
-import Jsign from './J.svg'
-import Ksign from './K.svg'
-import Lsign from './L.svg'
-import Msign from './M.svg'
-import Nsign from './N.svg'
-import Osign from './O.svg'
-import Psign from './P.svg'
-import Qsign from './Q.svg'
-import Rsign from './R.svg'
-import Ssign from './S.svg'
-import Tsign from './T.svg'
-import Usign from './U.svg'
-import Vsign from './V.svg'
-import Wsign from './W.svg'
-import Xsign from './X.svg'
-import Ysign from './Y.svg'
-import Zsign from './Z.svg'
+import type { SignImage } from '../../types'
+import ASign from './A.svg'
+import AHand from './Ahand.svg'
+import BSign from './B.svg'
+import BHand from './Bhand.svg'
+import CSign from './C.svg'
+import CHand from './Chand.svg'
+import DSign from './D.svg'
+import DHand from './Dhand.svg'
+import ESign from './E.svg'
+import EHand from './Ehand.svg'
+import FSign from './F.svg'
+import FHand from './Fhand.svg'
+import GSign from './G.svg'
+import GHand from './Ghand.svg'
+import HSign from './H.svg'
+import HHand from './Hhand.svg'
+import ISign from './I.svg'
+import IHand from './Ihand.svg'
+import JSign from './J.svg'
+import JHand from './Jhand.svg'
+import KSign from './K.svg'
+import KHand from './Khand.svg'
+import LSign from './L.svg'
+import LHand from './Lhand.svg'
+import LLSign from './LL.svg'
+import LLHand from './LLhand.svg'
+import MSign from './M.svg'
+import MHand from './Mhand.svg'
+import NSign from './N.svg'
+import NHand from './Nhand.svg'
+import NNSign from './NN.svg'
+import NNHand from './NNhand.svg'
+import OSign from './O.svg'
+import OHand from './Ohand.svg'
+import PSign from './P.svg'
+import PHand from './Phand.svg'
+import QSign from './Q.svg'
+import QHand from './Qhand.svg'
+import RSign from './R.svg'
+import RHand from './Rhand.svg'
+import RRSign from './RR.svg'
+import RRHand from './RRhand.svg'
+import SSign from './S.svg'
+import SHand from './Shand.svg'
+import TSign from './T.svg'
+import THand from './Thand.svg'
+import USign from './U.svg'
+import UHand from './Uhand.svg'
+import VSign from './V.svg'
+import VHand from './Vhand.svg'
+import WSign from './W.svg'
+import WHand from './Whand.svg'
+import XSign from './X.svg'
+import XHand from './Xhand.svg'
+import YSign from './Y.svg'
+import YHand from './Yhand.svg'
+import ZSign from './Z.svg'
+import ZHand from './Zhand.svg'
 
-import Ahand from './Ahand.svg'
-import Bhand from './Bhand.svg'
-import Chand from './Chand.svg'
-import Dhand from './Dhand.svg'
-import Ehand from './Ehand.svg'
-import Fhand from './Fhand.svg'
-import Ghand from './Ghand.svg'
-import Hhand from './Hhand.svg'
-import Ihand from './Ihand.svg'
-import Jhand from './Jhand.svg'
-import Khand from './Khand.svg'
-import Lhand from './Lhand.svg'
-import Mhand from './Mhand.svg'
-import Nhand from './Nhand.svg'
-import Ohand from './Ohand.svg'
-import Phand from './Phand.svg'
-import Qhand from './Qhand.svg'
-import Rhand from './Rhand.svg'
-import Shand from './Shand.svg'
-import Thand from './Thand.svg'
-import Uhand from './Uhand.svg'
-import Vhand from './Vhand.svg'
-import Whand from './Whand.svg'
-import Xhand from './Xhand.svg'
-import Yhand from './Yhand.svg'
-import Zhand from './Zhand.svg'
-
-export const SignImage = {
-  a: Asign,
-  b: Bsign,
-  c: Csign,
-  d: Dsign,
-  e: Esign,
-  f: Fsign,
-  g: Gsign,
-  h: Hsign,
-  i: Isign,
-  j: Jsign,
-  k: Ksign,
-  l: Lsign,
-  m: Msign,
-  n: Nsign,
-  o: Osign,
-  p: Psign,
-  q: Qsign,
-  r: Rsign,
-  s: Ssign,
-  t: Tsign,
-  u: Usign,
-  v: Vsign,
-  w: Wsign,
-  x: Xsign,
-  y: Ysign,
-  z: Zsign
+/** Each letter: the letter drawn (`sign`) and the hand making it (`hand`), as URLs */
+export const images: Record<string, SignImage> = {
+  A: { letter: 'A', sign: ASign, hand: AHand },
+  B: { letter: 'B', sign: BSign, hand: BHand },
+  C: { letter: 'C', sign: CSign, hand: CHand },
+  D: { letter: 'D', sign: DSign, hand: DHand },
+  E: { letter: 'E', sign: ESign, hand: EHand },
+  F: { letter: 'F', sign: FSign, hand: FHand },
+  G: { letter: 'G', sign: GSign, hand: GHand },
+  H: { letter: 'H', sign: HSign, hand: HHand },
+  I: { letter: 'I', sign: ISign, hand: IHand },
+  J: { letter: 'J', sign: JSign, hand: JHand },
+  K: { letter: 'K', sign: KSign, hand: KHand },
+  L: { letter: 'L', sign: LSign, hand: LHand },
+  LL: { letter: 'LL', sign: LLSign, hand: LLHand },
+  M: { letter: 'M', sign: MSign, hand: MHand },
+  N: { letter: 'N', sign: NSign, hand: NHand },
+  Ñ: { letter: 'Ñ', sign: NNSign, hand: NNHand },
+  O: { letter: 'O', sign: OSign, hand: OHand },
+  P: { letter: 'P', sign: PSign, hand: PHand },
+  Q: { letter: 'Q', sign: QSign, hand: QHand },
+  R: { letter: 'R', sign: RSign, hand: RHand },
+  RR: { letter: 'RR', sign: RRSign, hand: RRHand },
+  S: { letter: 'S', sign: SSign, hand: SHand },
+  T: { letter: 'T', sign: TSign, hand: THand },
+  U: { letter: 'U', sign: USign, hand: UHand },
+  V: { letter: 'V', sign: VSign, hand: VHand },
+  W: { letter: 'W', sign: WSign, hand: WHand },
+  X: { letter: 'X', sign: XSign, hand: XHand },
+  Y: { letter: 'Y', sign: YSign, hand: YHand },
+  Z: { letter: 'Z', sign: ZSign, hand: ZHand }
 }
-
-export const SignPass = [
-  {
-    src: Ahand,
-    alt: 'A'
-  },
-  {
-    src: Bhand,
-    alt: 'B'
-  },
-  {
-    src: Chand,
-    alt: 'C'
-  },
-  {
-    src: Dhand,
-    alt: 'D'
-  },
-  {
-    src: Ehand,
-    alt: 'E'
-  },
-  {
-    src: Fhand,
-    alt: 'F'
-  },
-  {
-    src: Ghand,
-    alt: 'G'
-  },
-  {
-    src: Hhand,
-    alt: 'H'
-  },
-  {
-    src: Ihand,
-    alt: 'I'
-  },
-  {
-    src: Jhand,
-    alt: 'J'
-  },
-  {
-    src: Khand,
-    alt: 'K'
-  },
-  {
-    src: Lhand,
-    alt: 'L'
-  },
-  {
-    src: Mhand,
-    alt: 'M'
-  },
-  {
-    src: Nhand,
-    alt: 'N'
-  },
-  {
-    src: Ohand,
-    alt: 'O'
-  },
-  {
-    src: Phand,
-    alt: 'P'
-  },
-  {
-    src: Qhand,
-    alt: 'Q'
-  },
-  {
-    src: Rhand,
-    alt: 'R'
-  },
-  {
-    src: Shand,
-    alt: 'S'
-  },
-  {
-    src: Thand,
-    alt: 'T'
-  },
-  {
-    src: Uhand,
-    alt: 'U'
-  },
-  {
-    src: Vhand,
-    alt: 'V'
-  },
-  {
-    src: Whand,
-    alt: 'W'
-  },
-  {
-    src: Xhand,
-    alt: 'X'
-  },
-  {
-    src: Yhand,
-    alt: 'Y'
-  },
-  {
-    src: Zhand,
-    alt: 'Z'
-  }
-]

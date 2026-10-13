@@ -11,15 +11,12 @@ import { iSign } from './I'
 import { jSign } from './J'
 import { kSign } from './K'
 import { lSign } from './L'
-import { llSign } from './LL'
 import { mSign } from './M'
 import { nSign } from './N'
-import { nnSign } from './NN'
 import { oSign } from './O'
 import { pSign } from './P'
 import { qSign } from './Q'
 import { rSign } from './R'
-import { rrSign } from './RR'
 import { sSign } from './S'
 import { tSign } from './T'
 import { uSign } from './U'
@@ -28,11 +25,16 @@ import { wSign } from './W'
 import { xSign } from './X'
 import { ySign } from './Y'
 import { zSign } from './Z'
-import { SignImage, SignPass } from './handimage/index'
 
+// LL, Ñ and RR share the handshape of L, N and R and differ in the movement: as still poses (GestureDescription) they
+// would be identical, so they are motions. LL and RR move to the side of the hand that signs (left in the frame the letters
+// are described in, a right hand in a non-mirrored image); Ñ goes from side to side
 const HandSignsSSL: HandSignLang = {
-  signImage: SignImage,
-  signPass: SignPass,
+  motions: [
+    { letter: 'LL', base: 'L', movement: { type: 'shift', direction: 'left' } },
+    { letter: 'Ñ', base: 'N', movement: { type: 'shake' } },
+    { letter: 'RR', base: 'R', movement: { type: 'shift', direction: 'left' } }
+  ],
   signs: {
     aSign,
     bSign,
@@ -45,16 +47,13 @@ const HandSignsSSL: HandSignLang = {
     iSign,
     jSign,
     kSign,
-    llSign,
     lSign,
     mSign,
-    nnSign,
     nSign,
     oSign,
     pSign,
     qSign,
     rSign,
-    rrSign,
     sSign,
     tSign,
     uSign,
@@ -66,6 +65,4 @@ const HandSignsSSL: HandSignLang = {
   }
 }
 
-export {
-  HandSignsSSL
-}
+export { HandSignsSSL }

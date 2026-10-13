@@ -3,7 +3,7 @@ import {
   FingerCurl,
   FingerDirection,
   GestureDescription
-} from 'fingerpose'
+} from '../fingerpose'
 
 const oSign = new GestureDescription('O')
 // [
@@ -36,7 +36,7 @@ const oSign = new GestureDescription('O')
 
 // Thumb
 oSign.addCurl(Finger.Thumb, FingerCurl.NoCurl, 1.0)
-oSign.addDirection(Finger.Index, FingerDirection.DiagonalUpRight, 0.7)
+oSign.addDirection(Finger.Thumb, FingerDirection.DiagonalUpRight, 0.7)
 
 // Index
 oSign.addCurl(Finger.Index, FingerCurl.HalfCurl, 1)

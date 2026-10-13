@@ -1,0 +1,73 @@
+# Publishes packages/handsign-multilingual to npm when a GitHub release is published (tag v<version>, e.g. v0.4.0).
+#
+# It uses npm trusted publishing (OIDC): no token is stored. Set it up once on npmjs.com, in the package settings →
+# Trusted publisher → GitHub Actions: owner nonodev96, repository handsign-multilingual, workflow publish-npm.yaml.
+# npm adds the provenance of each version (which commit and workflow built it).
+#
+# It can also be run by hand (Actions → Publish to npm → Run workflow), as a dry run by default.
+name: Publish to npm
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      dry-run:
+        description: Only check what would be published
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+  # Trusted publishing and provenance
+  id-token: write
+
+concurrency:
+  group: publish-npm
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: packages/handsign-multilingual
+    steps:
+      - uses: actions/checkout@v4
+
+      # The version of pnpm comes from "packageManager" in package.json
+      - uses: pnpm/action-setup@v4
+
+      # Node 24 comes with npm 11, which trusted publishing needs (11.5.1 or later)
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+          registry-url: https://registry.npmjs.org
+
+      - run: pnpm install --frozen-lockfile
+
+      - name: Check that the tag is the version of the package
+        if: github.event_name == 'release'
+        env:
+          TAG: ${{ github.event.release.tag_name }}
+        run: |
+          VERSION="$(node -p "require('./package.json').version")"
+          if [ "$TAG" != "v$VERSION" ]; then
+            echo "::error::The release tag ($TAG) is not v$VERSION, the version in packages/handsign-multilingual/package.json"
+            exit 1
+          fi
+
+      # Versions like 0.5.0-beta.1 go to the "next" dist-tag, so they are not installed by default
+      - name: Choose the dist-tag
+        id: dist-tag
+        run: |
+          VERSION="$(node -p "require('./package.json').version")"
+          case "$VERSION" in
+            *-*) echo "tag=next" >> "$GITHUB_OUTPUT" ;;
+            *) echo "tag=latest" >> "$GITHUB_OUTPUT" ;;
+          esac
+
+      # npm runs prepublishOnly (typecheck, lint, test and build) and prepack (copies README.md and LICENSE) first
+      - name: Publish
+        run: npm publish --provenance --access public --tag "${{ steps.dist-tag.outputs.tag }}" ${{ inputs.dry-run && '--dry-run' || '' }}

@@ -1,10 +1,8 @@
 {
   "name": "handsign-multilingual",
-  "version": "0.2.0",
-  "description": "handsign multilingual alphabet detection",
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
+  "version": "0.4.0",
+  "description": "Fingerspelling alphabets (American and Spanish sign languages) as finger pose descriptions",
+  "license": "BSD-2-Clause AND MIT",
   "author": {
     "name": "Antonio Mudarra Machuca",
     "email": "nonodev96@gmail.com",
@@ -12,31 +10,82 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/nonodev96/handsign-multilingual"
+    "url": "git+https://github.com/nonodev96/handsign-multilingual.git",
+    "directory": "packages/handsign-multilingual"
   },
+  "homepage": "https://github.com/nonodev96/handsign-multilingual#readme",
+  "bugs": {
+    "url": "https://github.com/nonodev96/handsign-multilingual/issues"
+  },
+  "keywords": [
+    "sign-language",
+    "fingerspelling",
+    "asl",
+    "fingerpose",
+    "handpose",
+    "tensorflow",
+    "tensorflow.js"
+  ],
+  "type": "commonjs",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
+    },
+    "./images": {
+      "import": {
+        "types": "./dist/images.d.mts",
+        "default": "./dist/images.mjs"
+      },
+      "require": {
+        "types": "./dist/images.d.ts",
+        "default": "./dist/images.js"
+      }
+    },
+    "./samples": {
+      "import": {
+        "types": "./dist/samples.d.mts",
+        "default": "./dist/samples.mjs"
+      },
+      "require": {
+        "types": "./dist/samples.d.ts",
+        "default": "./dist/samples.js"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "images",
+    "samples"
+  ],
+  "sideEffects": false,
   "scripts": {
     "dev": "tsup --watch",
     "build": "tsup",
-    "lint": "npx @biomejs/biome lint src",
-    "format": "npx @biomejs/biome format src"
-  },
-  "keywords": [
-    "fingerpose",
-    "tensorflow",
-    "tensorflow.js",
-    "handpose"
-  ],
-  "dependencies": {
-    "@andreekeberg/imagedata": "^1.0.2",
-    "fingerpose": "^0.1.0"
+    "test": "vitest run",
+    "evaluate": "tsx scripts/evaluate.ts",
+    "build:samples": "tsx scripts/build-samples.ts",
+    "typecheck": "tsc --noEmit",
+    "lint": "biome lint src tests",
+    "format": "biome format --write src tests",
+    "prepack": "node -e \"for (const file of ['README.md', 'LICENSE']) require('fs').copyFileSync('../../' + file, file)\"",
+    "prepublishOnly": "npm run typecheck && npm run lint && npm test && npm run build"
   },
   "devDependencies": {
     "@biomejs/biome": "1.8.1",
-    "@tensorflow-models/hand-pose-detection": "^2.0.1",
-    "@tensorflow/tfjs-node": "^4.20.0",
-    "@types/fingerpose": "^0.1.1",
-    "cypress": "^13.12.0",
-    "tsup": "^8.1.0",
-    "typescript": "^5.4.5"
+    "tsup": "^8.5.1",
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.3",
+    "vitest": "^3.2.7"
   }
 }

@@ -1,0 +1,7 @@
+{
+  "private": true,
+  "main": "../dist/images.js",
+  "module": "../dist/images.mjs",
+  "types": "../dist/images.d.ts",
+  "sideEffects": false
+}

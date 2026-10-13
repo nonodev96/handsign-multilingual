@@ -5,7 +5,8 @@
   },
   "files": {
     "ignore": [
-      "examples/**/*"
+      "examples/**/*",
+      "src/samples/asl-now.ts"
     ]
   },
   "linter": {

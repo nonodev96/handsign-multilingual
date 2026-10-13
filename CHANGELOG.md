@@ -1,3 +1,21 @@
+## 0.4.0 (unreleased)
+
+Breaking: only `dist` is published, fingerpose is no longer a dependency (its estimation is ported to TypeScript and exported: `GestureDescription`, `GestureEstimator`…), `sum` and `HandSignsTest` are gone, the images
+moved to `handsign-multilingual/images`, and `HandSignsSSL.signs` has no LL, Ñ and RR (they are in `motions`).
+
+* fix: the thumb direction of every letter described the index finger
+* fix: the left hand and mirrored images (`flipHorizontal`) are brought to the frame the letters are described in
+* fix: the Y of the Spanish alphabet weighed more than the other letters
+* feat: `createHandSignEstimator` (scores from 0 to 1, what each finger is doing) and `describeSign`
+* feat: `HandSignClassifier`, letters from recorded samples (k nearest neighbours)
+* feat: `HandMotionTracker`, LL, Ñ and RR by their movement
+* feat: `inferHandedness`, the label of a hand from its shape
+* feat: `handsign-multilingual/images`, the pictures as data URLs
+* feat: `handsign-multilingual/samples`, ready-made samples of American Sign Language (ASLNow!, MIT): from 38 % to 92 %
+* test: rules, samples, motions and accuracy with real hands (ASLNow!)
+* docs: README, demo rewritten (live recognition, alphabet, training, practice)
+* build: pnpm 12, publish from packages/handsign-multilingual
+
 ## 1.0.0 (2024-07-29)
 
 * fix(commitlint): :memo: package and husky ([ad90072](https://github.com/nonodev96/handsign-multilingual/commit/ad90072))

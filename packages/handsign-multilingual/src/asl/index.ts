@@ -25,11 +25,8 @@ import { wSign } from './W'
 import { xSign } from './X'
 import { ySign } from './Y'
 import { zSign } from './Z'
-import { SignImage, SignPass } from './handimage/index'
 
 const HandSignsASL: HandSignLang = {
-  signImage: SignImage,
-  signPass: SignPass,
   signs: {
     aSign,
     bSign,
@@ -56,10 +53,8 @@ const HandSignsASL: HandSignLang = {
     wSign,
     xSign,
     ySign,
-    zSign,
+    zSign
   }
 }
 
-export {
-  HandSignsASL
-}
+export { HandSignsASL }

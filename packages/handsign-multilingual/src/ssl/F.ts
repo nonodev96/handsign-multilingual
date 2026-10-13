@@ -3,7 +3,7 @@ import {
   FingerCurl,
   FingerDirection,
   GestureDescription
-} from 'fingerpose'
+} from '../fingerpose'
 
 const fSign = new GestureDescription('F')
 // [
@@ -36,7 +36,7 @@ const fSign = new GestureDescription('F')
 
 // Thumb
 fSign.addCurl(Finger.Thumb, FingerCurl.HalfCurl, 1.0)
-fSign.addDirection(Finger.Index, FingerDirection.DiagonalUpRight, 0.7)
+fSign.addDirection(Finger.Thumb, FingerDirection.DiagonalUpRight, 0.7)
 
 // Index
 fSign.addCurl(Finger.Index, FingerCurl.FullCurl, 1)

@@ -1,0 +1,7 @@
+{
+  "private": true,
+  "main": "../dist/samples.js",
+  "module": "../dist/samples.mjs",
+  "types": "../dist/samples.d.ts",
+  "sideEffects": false
+}

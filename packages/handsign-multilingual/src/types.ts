@@ -1,33 +1,20 @@
-import type { GestureDescription } from "fingerpose";
+import type { GestureDescription } from './fingerpose'
+import type { MotionSign } from './motion'
 
+/**
+ * A fingerspelling alphabet: the description of each letter (how each finger is curled and where it points) and, for the letters made with a movement, the
+ * handshape they use and how they move (HandMotionTracker recognises them)
+ */
 export type HandSignLang = {
-    signImage?: {
-        [name: string]: string
-    }
-
-    signPass?: {
-        src: string;
-        alt: string;
-    }[]
-
-    signs: {
-        [name: string]: GestureDescription
-    }
+  signs: {
+    [name: string]: GestureDescription
+  }
+  motions?: MotionSign[]
 }
 
-export interface Keypoint3D {
-    x: number;
-    y: number;
-    z: number;
-}
-
-export type Environment = {
-    Canvas: typeof HTMLCanvasElement;
-    CanvasRenderingContext2D: typeof CanvasRenderingContext2D;
-    Image: typeof HTMLImageElement;
-    ImageData: typeof ImageData;
-    Video: typeof HTMLVideoElement;
-    fetch: typeof fetch;
-    createCanvasElement: () => HTMLCanvasElement;
-    createImageElement: () => HTMLImageElement;
+/** The images of a letter (from `handsign-multilingual/images`): the letter drawn and the hand making it, as URLs */
+export type SignImage = {
+  letter: string
+  sign: string
+  hand: string
 }

@@ -1,0 +1,12 @@
+# pnpm 12 ("packageManager" in package.json)
+packages:
+  - packages/*
+  - examples/*
+# Dependency build scripts pnpm may run (pnpm >= 11 blocks them by default)
+# - esbuild: needed, installs the native binary tsup and Vite use
+# - @biomejs/biome: its binary comes in a platform package; the postinstall is not needed
+# - core-js: the postinstall only prints a funding message
+allowBuilds:
+  '@biomejs/biome': false
+  core-js: false
+  esbuild: true

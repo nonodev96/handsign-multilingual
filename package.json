@@ -1,35 +1,38 @@
 {
-    "name": "handsign-multilingual",
-    "description": "HandSign multilingual library",
-    "version": "0.2.0",
-    "main": "./dist/index.js",
-    "module": "./dist/index.mjs",
-    "types": "./dist/index.d.ts",
-    "author": {
-        "name": "Antonio Mudarra Machuca",
-        "email": "nonodev96@gmail.com",
-        "url": "https://github.com/nonodev96"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/nonodev96/handsign-multilingual"
-    },
-    "scripts": {
-        "dev:react": "npm run dev --workspace=examples/react",
-        "dev:package": "npm run dev --workspace=packages/handsign-multilingual",
-        "build:package": "npm run build --workspace=packages/handsign-multilingual",
-        "test": "",
-        "changelog": "conventional-changelog -i CHANGELOG.md -s -r 0",
-        "prepare": "husky install"
-    },
-    "workspaces": [
-        "examples/react",
-        "packages/handsign-multilingual"
-    ],
-    "devDependencies": {
-        "@commitlint/cli": "^19.3.0",
-        "@commitlint/config-conventional": "^19.2.2",
-        "conventional-changelog-cli": "^5.0.0",
-        "husky": "^8.0.0"
-    }
+  "name": "handsign-multilingual-monorepo",
+  "private": true,
+  "description": "handsign-multilingual library (packages/handsign-multilingual) and its examples",
+  "author": {
+    "name": "Antonio Mudarra Machuca",
+    "email": "nonodev96@gmail.com",
+    "url": "https://github.com/nonodev96"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nonodev96/handsign-multilingual.git"
+  },
+  "license": "BSD-2-Clause",
+  "packageManager": "pnpm@12.11.2",
+  "engines": {
+    "node": ">=22",
+    "pnpm": ">=12"
+  },
+  "scripts": {
+    "dev:react": "pnpm --filter example-handsign-multilingual-react dev",
+    "dev:react:https": "pnpm --filter example-handsign-multilingual-react dev:https",
+    "dev:package": "pnpm --filter handsign-multilingual dev",
+    "build:package": "pnpm --filter handsign-multilingual build",
+    "build:react": "pnpm --filter example-handsign-multilingual-react build",
+    "test": "pnpm --filter handsign-multilingual test",
+    "lint": "pnpm --filter handsign-multilingual lint",
+    "typecheck": "pnpm --filter handsign-multilingual typecheck",
+    "changelog": "conventional-changelog -i CHANGELOG.md -s -r 0",
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.3.0",
+    "@commitlint/config-conventional": "^19.2.2",
+    "conventional-changelog-cli": "^5.0.0",
+    "husky": "^8.0.0"
+  }
 }
