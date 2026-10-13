@@ -1,4 +1,4 @@
-## 0.4.0 (unreleased)
+## 0.4.0 (2026-10-13)
 
 Breaking: only `dist` is published, fingerpose is no longer a dependency (its estimation is ported to TypeScript and exported: `GestureDescription`, `GestureEstimator`…), `sum` and `HandSignsTest` are gone, the images
 moved to `handsign-multilingual/images`, and `HandSignsSSL.signs` has no LL, Ñ and RR (they are in `motions`).
@@ -15,26 +15,29 @@ moved to `handsign-multilingual/images`, and `HandSignsSSL.signs` has no LL, Ñ 
 * test: rules, samples, motions and accuracy with real hands (ASLNow!)
 * docs: README, demo rewritten (live recognition, alphabet, training, practice)
 * build: pnpm 12, publish from packages/handsign-multilingual
+* build: published to npm from GitHub Actions, with provenance
 
-## 1.0.0 (2024-07-29)
+## 0.3.0 (2024-09-25)
 
+* fix: esm module, main and types ([b6a13b8](https://github.com/nonodev96/handsign-multilingual/commit/b6a13b8))
+* feat(commitlint): :memo: add conventional-changelog-cli ([7063e81](https://github.com/nonodev96/handsign-multilingual/commit/7063e81))
 * fix(commitlint): :memo: package and husky ([ad90072](https://github.com/nonodev96/handsign-multilingual/commit/ad90072))
 * feat(commitlint): :memo: add commitlint and husky ([ff8ec6e](https://github.com/nonodev96/handsign-multilingual/commit/ff8ec6e))
+* tailwindcss, types, fix hands left and right ([73d44dd](https://github.com/nonodev96/handsign-multilingual/commit/73d44dd))
 * add debug tool ([1d67249](https://github.com/nonodev96/handsign-multilingual/commit/1d67249))
-* add license, update readme and package.json ([acf6ba8](https://github.com/nonodev96/handsign-multilingual/commit/acf6ba8))
-* American Sign Language and Spanish Sign Language ([ea8086f](https://github.com/nonodev96/handsign-multilingual/commit/ea8086f))
-* env node and browser save changes ([da870df](https://github.com/nonodev96/handsign-multilingual/commit/da870df))
 * example react ([7012385](https://github.com/nonodev96/handsign-multilingual/commit/7012385))
 * example react ([fda379e](https://github.com/nonodev96/handsign-multilingual/commit/fda379e))
-* Images Spanish sign language ([684ec2a](https://github.com/nonodev96/handsign-multilingual/commit/684ec2a))
-* jest with typescript, added svg transform ([a6067d4](https://github.com/nonodev96/handsign-multilingual/commit/a6067d4))
-* npm publish ([ddd9697](https://github.com/nonodev96/handsign-multilingual/commit/ddd9697))
-* refactor to typescript and module CommonJS ([36fce0f](https://github.com/nonodev96/handsign-multilingual/commit/36fce0f))
+* webcam selector ([3f02bc2](https://github.com/nonodev96/handsign-multilingual/commit/3f02bc2))
 * remove jest for cypress and examples ([d9d7aea](https://github.com/nonodev96/handsign-multilingual/commit/d9d7aea))
 * save changes ([c068764](https://github.com/nonodev96/handsign-multilingual/commit/c068764))
-* tailwindcss, types, fix hands left and right ([73d44dd](https://github.com/nonodev96/handsign-multilingual/commit/73d44dd))
+* env node and browser save changes ([da870df](https://github.com/nonodev96/handsign-multilingual/commit/da870df))
+* jest with typescript, added svg transform ([a6067d4](https://github.com/nonodev96/handsign-multilingual/commit/a6067d4))
+
+## 0.2.0 (2024-06-14)
+
+* npm publish ([ddd9697](https://github.com/nonodev96/handsign-multilingual/commit/ddd9697))
+* add license, update readme and package.json ([acf6ba8](https://github.com/nonodev96/handsign-multilingual/commit/acf6ba8))
+* refactor to typescript and module CommonJS ([36fce0f](https://github.com/nonodev96/handsign-multilingual/commit/36fce0f))
+* Images Spanish sign language ([684ec2a](https://github.com/nonodev96/handsign-multilingual/commit/684ec2a))
 * update readme ([c4b0d4e](https://github.com/nonodev96/handsign-multilingual/commit/c4b0d4e))
-* webcam selector ([3f02bc2](https://github.com/nonodev96/handsign-multilingual/commit/3f02bc2))
-
-
-
+* American Sign Language and Spanish Sign Language ([ea8086f](https://github.com/nonodev96/handsign-multilingual/commit/ea8086f))
