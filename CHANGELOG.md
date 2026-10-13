@@ -1,4 +1,4 @@
-## Unreleased
+## 0.5.0 (2026-10-13)
 
 * fix: `HandMotionTracker` recognises LL, Ñ and RR in 98 % of simulated takes, from 52-58 %, and no longer sees them
   where there are none (it did in 4-5 % of the takes): quick and short shifts (half a palm) and slow ones (up to 1.6 s),
