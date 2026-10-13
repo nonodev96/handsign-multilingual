@@ -80,19 +80,25 @@ function saveRecordings(): Plugin {
 }
 
 /**
- * Only in the build: @mediapipe/hands is a Closure bundle that publishes its API (Hands, HAND_CONNECTIONS, VERSION) on
- * `this || self` from inside a function, which Rollup cannot see, so the module came out empty and `new Hands()` failed
- * (the development server, with esbuild, gets it right). Naming the exports makes Rollup keep them
+ * Only in the build: @mediapipe/hands is a Closure bundle, `(function () { … }).call(this)`, that publishes its API
+ * (Hands, HAND_CONNECTIONS, VERSION) on that `this`. Rollup cannot see those exports, so the module came out empty and
+ * `new Hands()` failed (the development server, with esbuild, gets it right: there `this` is `exports`). This turns it
+ * into an ES module that runs the code on an object of its own, as esbuild does, and exports what it publishes there
  */
 function mediapipeHandsExports(): Plugin {
+  const CALL = /\}\)\.call\(this\);\s*$/
   return {
     name: 'handsign-mediapipe-hands-exports',
     apply: 'build',
     transform(code, id) {
       if (!/[\\/]@mediapipe[\\/]hands[\\/]hands\.js$/.test(id)) return null
-      const names = ['Hands', 'HAND_CONNECTIONS', 'VERSION']
+      if (!CALL.test(code)) this.error('@mediapipe/hands/hands.js no longer ends in "}).call(this);": review this plugin')
       return {
-        code: `${code}\n${names.map((name) => `exports.${name} = ${name};`).join('\n')}\n`,
+        code: [
+          'const mediapipeHands = {};',
+          code.replace(CALL, '}).call(mediapipeHands);'),
+          'export const { Hands, HAND_CONNECTIONS, VERSION } = mediapipeHands;'
+        ].join('\n'),
         map: null
       }
     }
