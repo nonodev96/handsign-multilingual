@@ -29,6 +29,8 @@ export type Recognition = {
   source: 'rules' | 'samples'
   /** The threshold the letter had to reach (that of the rules or that of your samples) */
   threshold: number
+  /** The letters that reach the threshold, best first: what the motion tracker gets (the base letter may come second) */
+  letters: LetterScore[]
   /** The letter recognised (null: none reaches its threshold) and its score */
   letter: string | null
   score: number
@@ -61,6 +63,7 @@ export function recognize(hand: Hand, settings: Settings, classifier: HandSignCl
     samples,
     source: useSamples ? 'samples' : 'rules',
     threshold,
+    letters: (useSamples ? samples : rules).filter(({ score }) => score >= threshold),
     letter: best !== undefined && best.score >= threshold ? best.letter : null,
     score: best?.score ?? 0,
     // On screen the video is mirrored or not; the letters are described for a hand labelled "Left" (see

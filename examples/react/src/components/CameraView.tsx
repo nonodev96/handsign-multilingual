@@ -170,7 +170,7 @@ export function CameraView({ onFrame, overlay }: CameraViewProps) {
           tracker = new HandMotionTracker(motionSigns)
           trackers.current.set(key, tracker)
         }
-        const motion = tracker.update(recognition.hand, recognition.letter, now)
+        const motion = tracker.update(recognition.hand, recognition.letters, now)
         motions[key] = motion
         if (motion !== null) shown.current.set(key, { letter: motion, until: now + MOTION_SHOWN_MS })
         const steady = smoother.current.push(key, recognition.letter)

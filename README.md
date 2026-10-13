@@ -89,7 +89,8 @@ describeSign(HandSignsASL.signs.bSign) // what B expects of each finger, to expl
 
 ## Letters with movement
 
-LL, Ñ and RR are the handshapes of L, N and R plus a movement, so they are in `HandSignsSSL.motions`.
+LL, Ñ and RR are the handshapes of L, N and R plus a movement, so they are in `HandSignsSSL.motions`: LL and RR move
+to the side of the hand that signs, Ñ goes from side to side (moving the hand or turning the wrist).
 `HandMotionTracker` follows one hand across the frames of a video:
 
 ```js
@@ -97,9 +98,14 @@ import { HandMotionTracker, HandSignsSSL } from 'handsign-multilingual'
 
 const tracker = new HandMotionTracker(HandSignsSSL.motions)
 
-// For each frame: the hand, and the letter recognised in it (by the classifier or the rules)
-const moved = tracker.update(hand, letter, performance.now()) // 'LL', 'Ñ', 'RR' or null
+// For each frame: the hand and what was recognised in it, the letters with their scores (or only the best letter)
+const moved = tracker.update(hand, estimator.estimate(hand).letters, performance.now()) // 'LL', 'Ñ', 'RR' or null
 ```
+
+A shift is recognised a moment after the hand stops going that way (150 ms), and a long shake is a single Ñ. The frames
+without a letter (the hand is blurred while it moves fast) do not count against the base letter, which also counts when
+it comes second but close. `pnpm evaluate:motion` measures it in simulated takes: trembling landmarks, blurred letters,
+15 to 30 frames per second.
 
 ## Pictures of the letters
 

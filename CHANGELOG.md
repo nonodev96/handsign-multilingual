@@ -1,3 +1,16 @@
+## Unreleased
+
+* fix: `HandMotionTracker` recognises LL, Ñ and RR in 98 % of simulated takes, from 52-58 %, and no longer sees them
+  where there are none (it did in 4-5 % of the takes): quick and short shifts (half a palm) and slow ones (up to 1.6 s),
+  the frames without a letter while the hand moves no longer count against the base letter, Ñ also by turning the
+  wrist (it follows the fingertips), the last swing of a shake is not a shift, changing letters while moving is not a
+  letter with movement, and a long shake is a single Ñ
+* feat: `HandMotionTracker.update` also takes the letters with their scores (`estimate(hand).letters`,
+  `classifier.predict(hand)`): the base letter counts when it comes second but close
+* change: a shift is recognised once the hand stops going that way (150 ms later); the defaults are now `windowMs`
+  2000, `minShift` 0.5 and `minSwing` 0.12, and `minBaseShare` counts only the frames with a letter
+* test: simulated takes of LL, Ñ and RR and of what is not one (`pnpm evaluate:motion`)
+
 ## 0.4.0 (2026-10-13)
 
 Breaking: only `dist` is published, fingerpose is no longer a dependency (its estimation is ported to TypeScript and exported: `GestureDescription`, `GestureEstimator`…), `sum` and `HandSignsTest` are gone, the images

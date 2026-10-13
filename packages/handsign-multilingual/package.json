@@ -74,6 +74,7 @@
     "build": "tsup",
     "test": "vitest run",
     "evaluate": "tsx scripts/evaluate.ts",
+    "evaluate:motion": "tsx scripts/evaluate-motion.ts",
     "build:samples": "tsx scripts/build-samples.ts",
     "typecheck": "tsc --noEmit",
     "lint": "biome lint src tests",
